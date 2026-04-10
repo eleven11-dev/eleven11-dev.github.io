@@ -1,25 +1,112 @@
 ---
 permalink: /404.html
-layout: page
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Eleven Dev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', system-ui, sans-serif; }
+    .logo-white { filter: brightness(0) invert(1); }
+    .text-gradient {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .bg-grid-pattern {
+      background-image:
+        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .btn-glow {
+      box-shadow: 0 0 30px rgba(59,130,246,0.3), 0 0 60px rgba(59,130,246,0.1);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 40px rgba(59,130,246,0.45), 0 0 80px rgba(59,130,246,0.15);
+    }
+    @keyframes pulse-orb {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.05); }
+    }
+    .orb { animation: pulse-orb 6s ease-in-out infinite; }
+    .orb-delay { animation-delay: 3s; }
+    .nav-blur {
+      background: rgba(3,9,26,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body class="bg-[#03091a] text-white antialiased" style="font-family: 'Inter', system-ui, sans-serif;">
 
-<div class="container">
-  <h1>404</h1>
+  <!-- Navigation -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 flex-shrink-0">
+        <img src="/assets/11_nav.svg" alt="" class="h-9 w-9 sm:hidden">
+        <img src="/assets/eleven_dev_nav.svg" alt="eleven.dev" class="hidden sm:block" style="height:30px; width:auto;">
+      </a>
+      <a href="/"
+         class="btn-glow bg-blue-600 hover:bg-blue-500 transition-all text-white text-sm font-semibold px-5 py-2.5 rounded-lg">
+        Go Home
+      </a>
+    </div>
+  </nav>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+  <!-- 404 Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid-pattern">
+
+    <!-- Background watermark -->
+    <img src="/assets/11_11_blue_violet.svg" alt="" class="absolute pointer-events-none select-none"
+         style="opacity:0.10;top:50%;left:50%;transform:translate(-50%,-50%);height:80%;width:auto;">
+
+    <!-- Background orbs -->
+    <div class="orb absolute rounded-full pointer-events-none"
+         style="width:600px;height:600px;top:15%;left:10%;
+                background:radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 70%);"></div>
+    <div class="orb orb-delay absolute rounded-full pointer-events-none"
+         style="width:500px;height:500px;bottom:10%;right:8%;
+                background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%);"></div>
+
+    <div class="relative z-10 text-center px-6">
+      <h1 class="text-[12rem] md:text-[20rem] font-extrabold leading-none tracking-tighter mb-2">
+        <span class="text-gradient">404</span>
+      </h1>
+      <p class="text-3xl md:text-5xl font-bold mb-5">Page not found</p>
+      <p class="text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed" style="color:rgba(219,234,254,0.55);">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <a href="/"
+         class="btn-glow inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 transition-all text-white font-semibold px-10 py-4 rounded-xl text-lg">
+        Back to Home
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>

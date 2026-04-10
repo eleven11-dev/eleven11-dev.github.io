@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eleven Dev — Software, AI & Agentic Development</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', system-ui, sans-serif; }
+
+    .logo-white { filter: brightness(0) invert(1); }
+
+    .bg-grid-pattern {
+      background-image:
+        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-violet {
+      background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+    .card-glass:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(59,130,246,0.25);
+      transform: translateY(-4px);
+    }
+
+    .card-violet {
+      background: rgba(139,92,246,0.07);
+      border: 1px solid rgba(139,92,246,0.2);
+      transition: all 0.3s ease;
+    }
+    .card-violet:hover {
+      background: rgba(139,92,246,0.1);
+      transform: translateY(-4px);
+    }
+
+    .btn-glow {
+      box-shadow: 0 0 30px rgba(59,130,246,0.3), 0 0 60px rgba(59,130,246,0.1);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 40px rgba(59,130,246,0.45), 0 0 80px rgba(59,130,246,0.15);
+    }
+
+    @keyframes pulse-orb {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.05); }
+    }
+    .orb { animation: pulse-orb 6s ease-in-out infinite; }
+    .orb-delay { animation-delay: 3s; }
+
+    @keyframes bounce-subtle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    .bounce-subtle { animation: bounce-subtle 2s ease-in-out infinite; }
+
+    .nav-blur {
+      background: rgba(3,9,26,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body class="bg-[#03091a] text-white antialiased" style="font-family: 'Inter', system-ui, sans-serif;">
+
+  <!-- ── Navigation ── -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <a href="#" class="flex items-center gap-3 flex-shrink-0">
+        <img src="assets/11_nav.svg" alt="" class="h-9 w-9 sm:hidden">
+        <img src="assets/eleven_dev_nav.svg" alt="eleven.dev" class="hidden sm:block" style="height:30px; width:auto;">
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium" style="color:rgba(147,197,253,0.7);">
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#ai"       class="hover:text-white transition-colors">AI &amp; ML</a>
+        <a href="#process"  class="hover:text-white transition-colors">Process</a>
+        <a href="#contact"  class="hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <a href="#contact"
+         class="btn-glow bg-blue-600 hover:bg-blue-500 transition-all text-white text-sm font-semibold px-5 py-2.5 rounded-lg">
+        Let's Talk
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid-pattern pt-20">
+
+    <!-- Background watermark -->
+    <img src="assets/11_11_blue_violet.svg" alt="" class="absolute pointer-events-none select-none"
+         style="opacity:0.10;top:50%;left:50%;transform:translate(-50%,-50%);height:80%;width:auto;">
+
+    <!-- Background orbs -->
+    <div class="orb absolute rounded-full pointer-events-none"
+         style="width:600px;height:600px;top:15%;left:10%;
+                background:radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 70%);"></div>
+    <div class="orb orb-delay absolute rounded-full pointer-events-none"
+         style="width:500px;height:500px;bottom:10%;right:8%;
+                background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%);"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full text-sm font-medium"
+           style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#93c5fd;">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse inline-block"></span>
+        Software &nbsp;·&nbsp; AI / ML &nbsp;·&nbsp; Agentic Systems
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-6xl md:text-8xl font-extrabold leading-[1.0] tracking-tight mb-7">
+        Build Smarter.<br>
+        <span class="text-gradient">Ship Faster.</span>
+      </h1>
+
+      <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed"
+         style="color:rgba(219,234,254,0.55);">
+        Custom software, AI&nbsp;/&nbsp;ML systems, and autonomous agents —
+        engineered for founders and teams who can't afford to slow down.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contact"
+           class="btn-glow bg-blue-600 hover:bg-blue-500 transition-all text-white font-semibold px-10 py-4 rounded-xl text-base w-full sm:w-auto">
+          Start a Project →
+        </a>
+        <a href="#services"
+           class="text-white font-semibold px-10 py-4 rounded-xl text-base w-full sm:w-auto transition-all"
+           style="border:1px solid rgba(255,255,255,0.1);"
+           onmouseover="this.style.background='rgba(255,255,255,0.05)'"
+           onmouseout="this.style.background='transparent'">
+          Explore Services
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="bounce-subtle absolute bottom-10 left-1/2 -translate-x-1/2"
+         style="color:rgba(255,255,255,0.2);">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Services ── -->
+  <section id="services" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color:#60a5fa;">What We Do</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-5">Everything You Need to Ship</h2>
+        <p class="text-lg max-w-2xl mx-auto" style="color:rgba(219,234,254,0.5);">
+          From early-stage products to enterprise AI integrations — we bring the expertise, you bring the vision.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Software Dev -->
+        <div class="card-glass rounded-2xl p-8">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+               style="background:rgba(59,130,246,0.15);">
+            <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Software Development</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:rgba(219,234,254,0.5);">
+            Full-stack web apps, APIs, mobile, and cloud infrastructure — built for performance and designed to last.
+          </p>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(147,197,253,0.65);">
+              <span class="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0"></span>Web &amp; Mobile Applications
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(147,197,253,0.65);">
+              <span class="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0"></span>API Design &amp; Integration
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(147,197,253,0.65);">
+              <span class="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0"></span>Cloud Architecture &amp; DevOps
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(147,197,253,0.65);">
+              <span class="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0"></span>Technical Consulting
+            </li>
+          </ul>
+        </div>
+
+        <!-- AI / ML — featured card -->
+        <div class="card-violet rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-px"
+               style="background:linear-gradient(90deg,transparent,rgba(139,92,246,0.6),transparent);"></div>
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+               style="background:rgba(139,92,246,0.2);">
+            <svg class="w-7 h-7" style="color:#a78bfa;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-4"
+                style="background:rgba(139,92,246,0.2);color:#c4b5fd;">Core Specialty</span>
+          <h3 class="text-xl font-bold mb-3">AI &amp; Machine Learning</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:rgba(219,234,254,0.5);">
+            Model development, LLM integration, and ML pipelines — turning raw data into measurable business outcomes.
+          </p>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(196,181,253,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a78bfa;"></span>LLM Integration &amp; Prompt Engineering
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(196,181,253,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a78bfa;"></span>Custom ML Model Development
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(196,181,253,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a78bfa;"></span>RAG &amp; Vector Databases
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(196,181,253,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#a78bfa;"></span>AI Strategy &amp; Consulting
+            </li>
+          </ul>
+        </div>
+
+        <!-- Agentic -->
+        <div class="card-glass rounded-2xl p-8">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+               style="background:rgba(34,211,238,0.1);">
+            <svg class="w-7 h-7" style="color:#22d3ee;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Agentic Development</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:rgba(219,234,254,0.5);">
+            Autonomous AI agents and multi-agent systems that reason, plan, and act — so your team focuses on what matters.
+          </p>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(103,232,249,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#22d3ee;"></span>Autonomous AI Agents
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(103,232,249,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#22d3ee;"></span>Multi-Agent Orchestration
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(103,232,249,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#22d3ee;"></span>Tool Use &amp; Function Calling
+            </li>
+            <li class="flex items-center gap-2.5 text-sm" style="color:rgba(103,232,249,0.7);">
+              <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#22d3ee;"></span>Workflow Automation
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI Deep-dive ── -->
+  <section id="ai" class="py-32 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(139,92,246,0.06) 0%,transparent 70%);"></div>
+
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Copy -->
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color:#a78bfa;">AI-First Mindset</p>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Intelligence built<br>
+            <span class="text-gradient-violet">into the foundation</span>
+          </h2>
+          <p class="text-lg leading-relaxed mb-10" style="color:rgba(219,234,254,0.55);">
+            We don't bolt AI on at the end. Every system we design considers data flows,
+            model interactions, and agentic capabilities from the first architectural decision.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                   style="background:rgba(139,92,246,0.15);">
+                <svg class="w-5 h-5" style="color:#a78bfa;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-1.5">Foundation Model Expertise</h4>
+                <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+                  Deep experience with GPT-4o, Claude, Gemini, Mistral, and Llama — we select the right model for your constraints and budget.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                   style="background:rgba(139,92,246,0.15);">
+                <svg class="w-5 h-5" style="color:#a78bfa;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-1.5">Production-Grade RAG Pipelines</h4>
+                <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+                  Connect AI to your knowledge base with robust retrieval, chunking strategies, re-ranking, and vector storage that works at scale.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                   style="background:rgba(139,92,246,0.15);">
+                <svg class="w-5 h-5" style="color:#a78bfa;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-1.5">Agentic Systems Design</h4>
+                <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+                  Architect and build agents that use tools, browse the web, execute code, and collaborate in multi-agent frameworks.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code card -->
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden"
+               style="background:rgba(255,255,255,0.03);border:1px solid rgba(139,92,246,0.2);">
+            <!-- Terminal chrome -->
+            <div class="px-4 py-3 flex items-center gap-2"
+                 style="background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.05);">
+              <div class="w-3 h-3 rounded-full" style="background:#ff5f57;"></div>
+              <div class="w-3 h-3 rounded-full" style="background:#febc2e;"></div>
+              <div class="w-3 h-3 rounded-full" style="background:#3b82f6;"></div>
+              <span class="ml-3 text-xs" style="color:rgba(255,255,255,0.3);font-family:'SF Mono',monospace;">agent.py</span>
+            </div>
+            <!-- Code body -->
+            <div class="p-6 text-sm space-y-1 leading-relaxed"
+                 style="font-family:'SF Mono','Fira Code',monospace;">
+              <div>
+                <span style="color:#a78bfa;">from</span>
+                <span style="color:#60a5fa;"> eleven_dev </span>
+                <span style="color:#a78bfa;">import</span>
+                <span style="color:rgba(255,255,255,0.8);"> Agent, tools</span>
+              </div>
+              <div class="pt-2">
+                <span style="color:rgba(255,255,255,0.8);">agent </span>
+                <span style="color:rgba(255,255,255,0.35);">= </span>
+                <span style="color:#60a5fa;">Agent</span>
+                <span style="color:rgba(255,255,255,0.6);">(</span>
+              </div>
+              <div class="pl-6">
+                <span style="color:#fbbf24;">model</span>
+                <span style="color:rgba(255,255,255,0.35);">=</span>
+                <span style="color:#7dd3fc;">"claude-sonnet-4"</span>
+                <span style="color:rgba(255,255,255,0.35);">,</span>
+              </div>
+              <div class="pl-6">
+                <span style="color:#fbbf24;">tools</span>
+                <span style="color:rgba(255,255,255,0.35);">=[</span>
+                <span style="color:rgba(255,255,255,0.7);">web_search, code_exec</span>
+                <span style="color:rgba(255,255,255,0.35);">],</span>
+              </div>
+              <div class="pl-6">
+                <span style="color:#fbbf24;">memory</span>
+                <span style="color:rgba(255,255,255,0.35);">=</span>
+                <span style="color:#a78bfa;">True</span>
+              </div>
+              <div><span style="color:rgba(255,255,255,0.6);">)</span></div>
+              <div class="pt-2">
+                <span style="color:rgba(255,255,255,0.3);"># Run a multi-step reasoning task</span>
+              </div>
+              <div>
+                <span style="color:rgba(255,255,255,0.8);">result </span>
+                <span style="color:rgba(255,255,255,0.35);">= </span>
+                <span style="color:#a78bfa;">await </span>
+                <span style="color:rgba(255,255,255,0.8);">agent.</span>
+                <span style="color:#60a5fa;">run</span>
+                <span style="color:rgba(255,255,255,0.6);">(</span>
+              </div>
+              <div class="pl-6">
+                <span style="color:#7dd3fc;">"Analyze competitors and draft a strategy"</span>
+              </div>
+              <div><span style="color:rgba(255,255,255,0.6);">)</span></div>
+
+              <!-- Status block -->
+              <div class="mt-4 p-3 rounded-lg"
+                   style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.18);">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse inline-block"></span>
+                  <span style="color:#60a5fa;font-size:11px;font-weight:600;">Agent running...</span>
+                </div>
+                <div style="color:rgba(255,255,255,0.4);font-size:11px;line-height:1.8;">
+                  → Searching web sources<br>
+                  → Synthesizing findings<br>
+                  → Drafting recommendations ✓
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-8 -right-8 w-48 h-48 rounded-full pointer-events-none"
+               style="background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%);"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats bar ── -->
+  <section style="border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-3xl md:text-4xl font-bold mb-2 text-blue-400">AI-Native</p>
+        <p class="text-sm" style="color:rgba(219,234,254,0.4);">Not an afterthought</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-bold mb-2" style="color:#a78bfa;">Full-Stack</p>
+        <p class="text-sm" style="color:rgba(219,234,254,0.4);">Front to back to cloud</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-bold mb-2" style="color:#22d3ee;">Focused</p>
+        <p class="text-sm" style="color:rgba(219,234,254,0.4);">Boutique &amp; hands-on</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-bold mb-2 text-blue-400">Rapid</p>
+        <p class="text-sm" style="color:rgba(219,234,254,0.4);">Ship without cutting corners</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Process ── -->
+  <section id="process" class="py-32 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color:#60a5fa;">How We Work</p>
+        <h2 class="text-4xl md:text-5xl font-bold">A Process Built for Clarity</h2>
+      </div>
+
+      <div class="space-y-4">
+
+        <div class="flex items-start gap-6 p-6 rounded-2xl transition-all"
+             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0"
+               style="background:rgba(59,130,246,0.15);color:#60a5fa;">01</div>
+          <div>
+            <h3 class="text-lg font-bold mb-1.5">Discovery &amp; Scoping</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+              A focused session to understand your goals, technical constraints, and success criteria.
+              We ask the right questions so there are no surprises later.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 rounded-2xl transition-all"
+             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0"
+               style="background:rgba(139,92,246,0.15);color:#a78bfa;">02</div>
+          <div>
+            <h3 class="text-lg font-bold mb-1.5">Architecture &amp; Design</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+              We design the system before writing a line of code — stack selection, AI/ML component design,
+              data flows, APIs, and integration points.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 rounded-2xl transition-all"
+             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0"
+               style="background:rgba(34,211,238,0.1);color:#22d3ee;">03</div>
+          <div>
+            <h3 class="text-lg font-bold mb-1.5">Build &amp; Iterate</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+              Rapid development with regular demos. You see progress early, give feedback continuously,
+              and we adapt without friction.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 rounded-2xl transition-all"
+             style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0"
+               style="background:rgba(59,130,246,0.15);color:#60a5fa;">04</div>
+          <div>
+            <h3 class="text-lg font-bold mb-1.5">Deploy &amp; Support</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(219,234,254,0.5);">
+              We handle production deployments, monitoring setup, and documentation.
+              Ongoing iteration and support available post-launch.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact CTA ── -->
+  <section id="contact" class="py-32 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
+           style="background:rgba(255,255,255,0.03);border:1px solid rgba(59,130,246,0.15);">
+
+        <!-- Top shimmer line -->
+        <div class="absolute inset-x-0 top-0 h-px"
+             style="background:linear-gradient(90deg,transparent,rgba(59,130,246,0.55),rgba(139,92,246,0.55),transparent);"></div>
+        <!-- Radial glow -->
+        <div class="absolute inset-0 pointer-events-none"
+             style="background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(59,130,246,0.08) 0%,transparent 60%);"></div>
+
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-8"
+               style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.2);">
+            <img src="assets/11_nav.svg" alt="" class="w-8 h-8">
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-5">Ready to Build?</h2>
+          <p class="text-xl mb-10 max-w-xl mx-auto leading-relaxed" style="color:rgba(219,234,254,0.55);">
+            Have a project in mind? Let's talk about what you're building and how we can help.
+          </p>
+          <a href="mailto:hello@eleven.dev"
+             class="btn-glow inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 transition-all text-white font-semibold px-10 py-4 rounded-xl text-lg">
+            Get in Touch
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer style="border-top:1px solid rgba(255,255,255,0.05);">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3" style="opacity:0.5;">
+        <img src="assets/11_nav.svg" alt="" class="h-8 w-8">
+        <img src="assets/eleven_dev_nav.svg" alt="eleven.dev" style="height:22px;width:auto;">
+      </div>
+      <p class="text-sm" style="color:rgba(255,255,255,0.25);">© 2025 Eleven Dev. Built with precision.</p>
+      <div class="flex items-center gap-6 text-sm" style="color:rgba(147,197,253,0.4);">
+        <a href="#services" class="hover:text-blue-300 transition-colors">Services</a>
+        <a href="#ai"       class="hover:text-blue-300 transition-colors">AI &amp; ML</a>
+        <a href="#process"  class="hover:text-blue-300 transition-colors">Process</a>
+        <a href="#contact"  class="hover:text-blue-300 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
