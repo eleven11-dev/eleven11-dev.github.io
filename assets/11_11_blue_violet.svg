@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0.5" x2="1" y2="0.5">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <path id="one" d="M480.13,813.61c0,4.38-3.51,7.89-7.85,7.89H183.46c-4.34,0-7.89-3.51-7.89-7.89v-129.37c0-4.34,3.55-7.85,7.89-7.85h63.99c4.34,0,7.85-3.55,7.85-7.89v-318.27c0-5.56-5.6-9.38-10.76-7.33l-58.2,23.03c-5.17,2.05-10.76-1.77-10.76-7.33v-129.13c0-3.23,1.97-6.15,4.97-7.33l209.05-82.64c.95-.39,1.93-.55,2.92-.55,4.14,0,7.85,3.35,7.85,7.85h.04v521.72c0,4.34,3.55,7.89,7.89,7.89h63.99c4.34,0,7.85,3.51,7.85,7.85v129.37Z"/>
+  </defs>
+  <mask id="m">
+    <circle cx="500" cy="500" r="490" fill="white"/>
+    <use href="#one" transform="translate(32.19,170.67) scale(0.54)" fill="black"/>
+    <use href="#one" transform="translate(201.69,170.67) scale(0.54)" fill="black"/>
+    <circle cx="500" cy="355" r="21" fill="black"/>
+    <circle cx="500" cy="505" r="21" fill="black"/>
+    <use href="#one" transform="translate(444.19,170.67) scale(0.54)" fill="black"/>
+    <use href="#one" transform="translate(613.69,170.67) scale(0.54)" fill="black"/>
+    <text x="500" y="755" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="90" textLength="680" lengthAdjust="spacingAndGlyphs" fill="black">DEVELOPMENT</text>
+  </mask>
+  <circle fill="url(#grad)" cx="500" cy="500" r="490" mask="url(#m)"/>
+</svg>
